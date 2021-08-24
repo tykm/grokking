@@ -5,7 +5,7 @@ print(ordered_array)
 
 def binary_search_iter(arr: list[int], target: int):
     low = 0
-    high = len(arr)
+    high = len(arr) - 1
     mid = (low + high) // 2
     while arr[mid] != target:
         if arr[mid] < target:
@@ -17,7 +17,7 @@ def binary_search_iter(arr: list[int], target: int):
     return(arr[mid])
     
              
-print(binary_search_iter(ordered_array, 2))
+print(binary_search_iter(ordered_array, 3))
 
 '''
 Cases:
