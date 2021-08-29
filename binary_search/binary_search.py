@@ -1,24 +1,32 @@
 from generate_ordered_array import generate
 
-ordered_array = generate(8)
-print(ordered_array)
+ordered_array = generate(100000000)
+#print(ordered_array)
 
+print("starting")
 def binary_search_iter(arr: list[int], target: int):
     low = 0
     high = len(arr) - 1
-    mid = (low + high) // 2
-    while arr[mid] != target:
-        if arr[mid] < target:
-            low = mid + 1
-            mid = (low + high) // 2
-        elif arr[mid] > target:
-            high = mid - 1
-            mid = (low + high) // 2
-    return(arr[mid])
+    guess_index = (low + high) // 2
+    guess = arr[guess_index]
+    
+    while guess != target:
+        if guess > target:
+            high = guess_index - 1
+        else:
+            low = guess_index + 1
+        guess_index = (high + low) // 2
+        guess = arr[guess_index]
+    return guess
     
              
-print(binary_search_iter(ordered_array, 3))
-
+print(binary_search_iter(ordered_array, 90000000))
+i = 0
+num = ordered_array[i]
+while num != 90000000:
+    i+=1
+    num = ordered_array[i]
+print(num)
 '''
 Cases:
 Array Even:
